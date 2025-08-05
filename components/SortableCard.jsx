@@ -1,4 +1,3 @@
-
 import { useSortable } from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import { FaTimes } from 'react-icons/fa'
@@ -19,10 +18,10 @@ export default function SortableCard({ pokemon, onRemove }) {
     <div
       ref={setNodeRef}
       style={style}
-      {...attributes} // just attributes, not listeners here
+      {...attributes}
       className="relative bg-white p-4 rounded-xl shadow-md text-center flex flex-col items-center"
     >
-      {/* 🗑️ Remove Button */}
+      {/* Remove Button */}
       <button
         onClick={(e) => {
           e.stopPropagation()
@@ -36,7 +35,7 @@ export default function SortableCard({ pokemon, onRemove }) {
         <FaTimes />
       </button>
 
-      {/* 🟰 Drag Handle */}
+      {/* Drag Handle */}
       <div
         {...listeners}
         className="absolute bottom-2 right-2 text-gray-400 cursor-grab active:cursor-grabbing"
@@ -45,7 +44,7 @@ export default function SortableCard({ pokemon, onRemove }) {
         <LuGripVertical size={20} />
       </div>
 
-      {/* 📛 Pokémon Info */}
+      {/* Pokémon Info */}
       <img src={pokemon.image} alt={pokemon.name} className="w-24 h-24 object-contain mb-2" />
       <h2 className="text-lg font-bold capitalize">{pokemon.name}</h2>
       <div className="flex gap-2 mt-1 flex-wrap justify-center">

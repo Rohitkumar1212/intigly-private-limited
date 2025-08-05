@@ -37,7 +37,7 @@ export default function CollectionPage() {
     window.dispatchEvent(new Event('collectionUpdated'))
   }
 
-  if (!hasMounted) return null // 🛑 Prevent SSR mismatch
+  if (!hasMounted) return null // Prevent SSR mismatch
 
   return (
     <div className="min-h-screen p-6">

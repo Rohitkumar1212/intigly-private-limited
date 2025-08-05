@@ -43,6 +43,7 @@ export default function DiscoverPage() {
   const { data, fetchNextPage, hasNextPage, isFetchingNextPage } = usePokemonList()
   const loaderRef = useRef(null)
 
+  //useEffect for tracking the user scroll and fetching data once certail threshold reach
   useEffect(() => {
     if (!hasNextPage || isFetchingNextPage) return
 
@@ -68,12 +69,14 @@ export default function DiscoverPage() {
   return (
     <main className="p-6 max-w-5xl mx-auto">
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+        {/* cards list */}
         {data?.pages.flatMap((page) =>
           page.results.map((pokemon) => (
             <PokemonCard key={pokemon.id} {...pokemon} />
           ))
         )}
-
+        
+        {/* loader */}
         {isFetchingNextPage &&
           Array.from({ length: 3 }).map((_, i) => (
             <PokemonCardSkeleton key={`skeleton-${i}`} />
